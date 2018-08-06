@@ -1,6 +1,7 @@
 language: node_js
 node_js: stable
 install: npm install
+script: npm run build
 
 jobs:
   include:
@@ -8,5 +9,13 @@ jobs:
       if: branch = master
       node_js: stable
       script: 
-        - npm run build
         - npm run semantic-release
+    - stage: gh-pages
+      if: branch = master 
+      node_js: stable 
+      deploy:
+        - provider: pages
+          skip_cleanup: true
+          github_token: $GH_TOKEN 
+          keep_history: true
+          local_dir: build/ 
