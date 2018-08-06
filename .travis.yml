@@ -1,22 +1,21 @@
 language: node_js
 node_js: stable
-
 install: npm install
 script: npm run build
 
 jobs:
   include:
     - stage: semantic release
-      if: branch = master
+      if: branch = master AND type = push
       node_js: stable
       script: 
         - npm run semantic-release
     - stage: gh-pages
-      if: branch = master 
+      if: branch = master AND type = push
       node_js: stable 
       deploy:
         - provider: pages
           skip_cleanup: false
-          github_token: $GH_TOKEN 
           keep_history: false
+          github_token: $GH_TOKEN 
           local_dir: build/ 
