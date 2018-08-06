@@ -15,7 +15,7 @@ jobs:
       node_js: stable 
       deploy:
         - provider: pages
-          skip_cleanup: false
-          keep_history: false
+          skip_cleanup: true
+          keep_history: true
           github_token: $GH_TOKEN 
           local_dir: build/ 
