@@ -1,5 +1,9 @@
 language: node_js
 node_js: stable
+cache:
+  directories:
+    - build
+
 install: npm install
 script: npm run build
 
