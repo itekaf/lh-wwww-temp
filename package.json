@@ -63,9 +63,12 @@
         "whatwg-fetch": "2.0.3"
     },
     "scripts": {
+        "eslint": "node_modules/.bin/eslint",
+        "lint": "eslint .",
         "start": "node script/start.js",
         "stop": "node script/stop.js",
         "build": "node script/build.js",
+        "test": "node script/build.js",
         "semantic-release": "semantic-release"
     },
     "jest": {
